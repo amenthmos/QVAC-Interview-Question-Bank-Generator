@@ -27,7 +27,12 @@ function parseQuestions(text) {
     }
   }
   if (questions.length === 0) {
-    const bySentence = text.split(/(?<=\?)\s+/).map((s) => s.trim()).filter((s) => s.length > 5);
+    // Strip any stray leading bullet/number the split missed, so a
+    // malformed list line doesn't leak a "3." prefix into the question text.
+    const bySentence = text
+      .split(/(?<=\?)\s+/)
+      .map((s) => s.trim().replace(/^(?:\d+[.)]|-|\*)\s*/, ""))
+      .filter((s) => s.length > 5);
     questions.push(...bySentence);
   }
   return questions;
