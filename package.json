@@ -1,0 +1,15 @@
+{
+  "name": "qvac-interview-question-bank-generator",
+  "version": "1.0.0",
+  "description": "Enter a job role, get 5 realistic interview questions likely to be asked for that role, generated on-device. No cloud call, no API key.",
+  "type": "module",
+  "main": "src/gui.js",
+  "scripts": {
+    "start": "node src/gui.js",
+    "gui": "node src/gui.js"
+  },
+  "keywords": ["qvac", "on-device-ai", "interview-prep", "llm", "offline-ai"],
+  "license": "MIT",
+  "dependencies": { "@qvac/sdk": "^0.19.0" },
+  "engines": { "node": ">=22.17" }
+}
